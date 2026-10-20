@@ -1,0 +1,15 @@
+{
+  "name": "lelouch-larperouge",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Changes my GitHub status to a random Lelouch Lamperouge quote",
+  "type": "module",
+  "scripts": {
+    "start": "node update-status.mjs",
+    "dry-run": "node update-status.mjs --dry-run",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
