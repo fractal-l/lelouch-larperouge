@@ -44,8 +44,8 @@ node --test
 
 ## Notes
 
-- `GH_TOKEN` needs the `user` scope to change profile status.
-- GitHub pauses scheduled workflows after 60 days of repository inactivity. Any push or a manual run re-enables them.
+- `GH_TOKEN` needs the `user` scope to change profile status. Set the token to never expire, otherwise runs will start failing when it expires.
+- GitHub disables scheduled workflows after 60 days without repository activity. The [`keepalive.yml`](./.github/workflows/keepalive.yml) workflow makes a small timestamp commit on the first of every month to prevent that.
 - Scheduled runs can be delayed during periods of high GitHub Actions load.
 
 ## License
