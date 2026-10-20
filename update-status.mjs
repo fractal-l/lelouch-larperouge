@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { readFile } from "node:fs/promises";
-import { pickQuote } from "./lib.mjs";
+import { STATUS_EMOJI, pickQuote } from "./lib.mjs";
 
 const GRAPHQL_URL = "https://api.github.com/graphql";
 const TOKEN = process.env.GH_TOKEN ?? process.env.GITHUB_TOKEN;
@@ -17,10 +17,11 @@ const CURRENT_STATUS_QUERY = `
 `;
 
 const CHANGE_STATUS_MUTATION = `
-  mutation ($message: String!) {
-    changeUserStatus(input: { message: $message }) {
+  mutation ($message: String!, $emoji: String!) {
+    changeUserStatus(input: { message: $message, emoji: $emoji }) {
       status {
         message
+        emoji
       }
     }
   }
@@ -55,7 +56,10 @@ async function getCurrentStatus() {
 }
 
 async function setStatus(message) {
-  const data = await graphql(CHANGE_STATUS_MUTATION, { message });
+  const data = await graphql(CHANGE_STATUS_MUTATION, {
+    message,
+    emoji: STATUS_EMOJI,
+  });
   return data.changeUserStatus.status.message;
 }
 

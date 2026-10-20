@@ -4,6 +4,7 @@ import { readFile } from "node:fs/promises";
 import {
   ATTRIBUTION,
   MAX_STATUS_LENGTH,
+  STATUS_EMOJI,
   formatStatus,
   pickQuote,
 } from "./lib.mjs";
@@ -22,6 +23,10 @@ test("every quote fits the GitHub status limit", () => {
     assert.ok(status.startsWith("\u201c"));
     assert.ok(status.endsWith(`\u201d \u2013 ${ATTRIBUTION}`));
   }
+});
+
+test("status uses the shinto shrine emoji", () => {
+  assert.equal(STATUS_EMOJI, ":shinto_shrine:");
 });
 
 test("pickQuote returns a formatted status", () => {

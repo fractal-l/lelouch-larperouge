@@ -4,7 +4,7 @@ Changes my GitHub profile status to a random Lelouch Lamperouge quote every six 
 
 **Format:** “quote” – Lelouch Lamperouge
 
-The quote is picked at random from [`quotes.json`](./quotes.json), avoiding the quote that is already in the status. GitHub limits profile statuses to 80 characters, so every quote in the list is curated to fit the full formatted status.
+The quote is picked at random from [`quotes.json`](./quotes.json), avoiding the quote that is already in the status. It uses the `:shinto_shrine:` status emoji. GitHub limits profile statuses to 80 characters, so every quote in the list is curated to fit the full formatted status.
 
 ## How it works
 

@@ -1,5 +1,6 @@
 export const MAX_STATUS_LENGTH = 80;
 export const ATTRIBUTION = "Lelouch Lamperouge";
+export const STATUS_EMOJI = ":shinto_shrine:";
 
 const LEFT_QUOTE = "\u201c";
 const RIGHT_QUOTE = "\u201d";
